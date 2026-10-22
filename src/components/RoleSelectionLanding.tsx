@@ -47,6 +47,21 @@ interface RoleSelectionLandingProps {
 
 const INSTRUCTOR_PASSWORD = 'Sena1234';
 
+const TRANSLATIONS = {
+  es: {
+    title: "Bienvenido al Portal de Formación SENA",
+    subtitle: "Selecciona tu rol para ingresar al entorno correspondiente y continuar con tu proceso formativo.",
+    sena: "Servicio Nacional de Aprendizaje",
+    portal: "Portal de Inducción • Acuerdo 007 de 2012"
+  },
+  en: {
+    title: "Welcome to the SENA Training Portal",
+    subtitle: "Select your role to enter the corresponding environment and continue your training process.",
+    sena: "National Training Service",
+    portal: "Induction Portal • Agreement 007 of 2012"
+  }
+};
+
 export const RoleSelectionLanding: React.FC<RoleSelectionLandingProps> = ({
   onSelectInstructor,
   onSelectLearner,
@@ -207,10 +222,10 @@ export const RoleSelectionLanding: React.FC<RoleSelectionLandingProps> = ({
             <SenaLogo size="md" light={isDarkMode} />
             <div className="hidden sm:block">
               <span className="text-[11px] font-bold tracking-widest uppercase text-emerald-700 dark:text-emerald-400 block leading-tight">
-                Servicio Nacional de Aprendizaje
+                {TRANSLATIONS[language].sena}
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                Portal de Inducción • Acuerdo 007 de 2012
+                {TRANSLATIONS[language].portal}
               </span>
             </div>
           </div>
@@ -266,10 +281,10 @@ export const RoleSelectionLanding: React.FC<RoleSelectionLandingProps> = ({
                   <span>Plataforma Oficial de Inducción Institucional</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
-                  Bienvenido al Portal de Formación SENA
+                  {TRANSLATIONS[language].title}
                 </h1>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
-                  Selecciona tu rol para ingresar al entorno correspondiente y continuar con tu proceso formativo.
+                  {TRANSLATIONS[language].subtitle}
                 </p>
               </div>
 
