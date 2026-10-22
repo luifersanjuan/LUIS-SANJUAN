@@ -40,6 +40,8 @@ interface RoleSelectionLandingProps {
   onToggleDarkMode: () => void;
   soundEnabled: boolean;
   onToggleSound: () => void;
+  language: 'es' | 'en';
+  onToggleLanguage: () => void;
   initialRoleChoice?: 'instructor' | 'aprendiz' | null;
 }
 
@@ -53,6 +55,8 @@ export const RoleSelectionLanding: React.FC<RoleSelectionLandingProps> = ({
   onToggleDarkMode,
   soundEnabled,
   onToggleSound,
+  language,
+  onToggleLanguage,
   initialRoleChoice
 }) => {
   // Selected tab / active flow: 'landing' | 'instructor_pin' | 'learner_characterization' | 'avatar_selection'
@@ -227,6 +231,13 @@ export const RoleSelectionLanding: React.FC<RoleSelectionLandingProps> = ({
               title={isDarkMode ? 'Modo claro' : 'Modo oscuro'}
             >
               {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+            </button>
+            <button
+              onClick={onToggleLanguage}
+              className="p-2.5 rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-bold text-xs"
+              title="Cambiar idioma"
+            >
+              {language.toUpperCase()}
             </button>
             <button
               onClick={() => setIsVideoModalOpen(true)}

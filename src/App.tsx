@@ -154,6 +154,8 @@ export default function App() {
 
   // Sound toggle state
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [language, setLanguage] = useState<'es' | 'en'>('es');
+  const toggleLanguage = () => setLanguage(prev => prev === 'es' ? 'en' : 'es');
 
   // Current apprentice view state
   const [currentView, setCurrentView] = useState<'roadmap' | 'study' | 'quiz' | 'case' | 'certificate'>('roadmap');
@@ -599,6 +601,8 @@ export default function App() {
         onToggleDarkMode={handleToggleDarkMode}
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}
+        language={language}
+        onToggleLanguage={toggleLanguage}
         initialRoleChoice={initialRoleChoice}
       />
     );
