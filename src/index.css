@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  body.dark {
+    color: #f1f5f9;
+    background-color: #090d16;
+  }
+}
+
+/* Luminous Ambient Blur Effect for Dark Mode */
+.dark-blur-screen-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 15% 15%, rgba(57, 169, 0, 0.12) 0%, transparent 45%),
+              radial-gradient(circle at 85% 25%, rgba(2, 132, 199, 0.10) 0%, transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Screen transition blur animation flash when toggling mode */
+@keyframes modeTransitionBlur {
+  0% {
+    filter: blur(0px);
+    opacity: 0.95;
+  }
+  40% {
+    filter: blur(12px);
+    opacity: 0.75;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.screen-blur-active {
+  animation: modeTransitionBlur 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media print {
+  body, body.dark {
+    background: white !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-certificate-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid;
+    background: white !important;
+    color: #0f172a !important;
+  }
+}

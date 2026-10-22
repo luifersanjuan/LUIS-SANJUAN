@@ -1,0 +1,6 @@
+{
+  "name": "Inducción SENA - Reglamento y Derechos del Aprendiz",
+  "description": "Plataforma gamificada de inducción al SENA para conocer el reglamento, derechos, deberes y medidas formativas con evaluación interactiva y certificado oficial digital.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
